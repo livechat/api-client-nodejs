@@ -343,9 +343,9 @@ class LiveChatApi extends Requester
 		super @user, @apiKey, @apiVersion
 
 		if @apiVersion == 2
-			@agents = new Agent(@) # 2
+			@agents = new Agents(@) # 2
 			@groups = new Groups(@) # 2
-			@reports = new Reports(@) @ 2
+			@reports = new Reports(@) # @ 2
 		else if @apiVersion == 1
 			@operators = new Operators(@) # 1
 			@offline_messages = new OfflineMessages(@) # 1
