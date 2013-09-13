@@ -1,0 +1,20 @@
+{
+  "author": "Roman Ragimoff",
+  "name": "livechatapi",
+  "description": "Livechat.com API Wrapper",
+  "version": "0.3.0",
+  "repository": {
+    "url": ""
+  },
+  "main": "./lib/api",
+  "dependencies": {
+    "request": "2.x"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.6.3"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
