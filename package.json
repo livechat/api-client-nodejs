@@ -2,7 +2,7 @@
   "author": "Roman Ragimoff",
   "name": "livechatapi",
   "description": "Livechat.com API Wrapper",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "repository": {
     "url": ""
   },
