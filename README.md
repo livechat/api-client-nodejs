@@ -11,7 +11,7 @@ Module designed to completely repeat official API without needs to think about a
 ```
 var LiveChatApi = require('livechatapi').LiveChatApi;
 var api = new LiveChatApi('username@domain.com', 'APIKEY')
-api.status.get({ groups: 0 }, function(data){
+api.status.get({ group: 0 }, function(data){
   console.log(data);
 });
 ```
