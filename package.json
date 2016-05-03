@@ -1,8 +1,12 @@
 {
   "author": "Roman Ragimoff",
+  "contributors": [{
+    "name": "Chyi Pin Lim",
+    "email": "clim@godaddy.com"
+  }],
   "name": "livechatapi",
   "description": "Livechat.com API Wrapper",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "repository": {
     "url": ""
   },

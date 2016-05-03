@@ -3,7 +3,7 @@ crypto = require 'crypto'
 
 class Requester
 	constructor: (@user, @apiKey, @apiVersion = 2, @host = 'https://api.livechatinc.com/') ->
-		@request = request.defaults 
+		@request = request.defaults
 						auth:
 							user: @user
 							password: @apiKey
@@ -11,54 +11,66 @@ class Requester
 							'X-API-Version': @apiVersion
 
 	get: (method, data = {}, callback) =>
-		@request 
+		@request
 			url: @host + method
 			qs: data
 		, ( error, response, body) =>
 			if error?
 				callback { error: error }
-			else					
+			else
 				if response.statusCode == 200
-					callback JSON.parse body
+					try
+						callback JSON.parse body
+					catch error
+						callback { error: error, body: body }
 				else
 					callback { error : body }
 
 	post: (method, data = {}, callback) =>
-		@request.post 
+		@request.post
 			url: @host + method
 			form: data
 		, ( error, response, body) =>
 			if error?
 				callback { error: error }
-			else					
+			else
 				if response.statusCode == 200
-					callback JSON.parse body
+					try
+						callback JSON.parse body
+					catch error
+						callback { error: error, body: body }
 				else
 					callback { error : body }
 
 	put: (method, data = {}, callback) =>
-		@request.put 
+		@request.put
 			url: @host + method
 			form: data
 		, ( error, response, body) =>
 			if error?
 				callback { error: error }
-			else					
+			else
 				if response.statusCode == 200
-					callback JSON.parse body
+					try
+						callback JSON.parse body
+					catch error
+						callback { error: error, body: body }
 				else
 					callback { error : body }
 
 	del: (method, data = {}, callback) =>
-		@request.del 
+		@request.del
 			url: @host + method
 			form: data
 		, ( error, response, body) =>
 			if error?
 				callback { error: error }
-			else					
+			else
 				if response.statusCode == 200
-					callback JSON.parse body
+					try
+						callback JSON.parse body
+					catch error
+						callback { error: error, body: body }
 				else
 					callback { error : body }
 
@@ -73,7 +85,7 @@ class BasicCrud
 		@api.get @path, params, (response) =>
 			if callback?
 				callback response
-			
+
 	get: (id = '', callback) =>
 		@api.get @path + '/' + id, {}, (response) =>
 			if callback?
@@ -105,7 +117,7 @@ class BasicCrud
 class Agents extends BasicCrud
 	constructor: (@api) ->
 		super @api, 'agents'
-	
+
 	resetApiKey: (id = '', callback) =>
 		@api.put 'agents/' + id + '/reset_api_key', {}, (response) =>
 			if callback?
@@ -274,7 +286,7 @@ class Reports
 		@api.get @path + '/goals', params, (response) =>
 			if callback?
 				callback response
-	
+
 class Status
 	constructor: (@api) ->
 
@@ -357,9 +369,9 @@ class LiveChatApi extends Requester
 
 		@canned_responses = new CannedResponses(@) # 2 & 1
 		@chats = new Chats(@) # 2 & 1
-		@goals = new Goals(@) # 2 & 1	
+		@goals = new Goals(@) # 2 & 1
 		@status = new Status(@) # 2 & 1
-		@visitors = new Visitors(@) # 2 & 1	
+		@visitors = new Visitors(@) # 2 & 1
 
 
 exports.LiveChatApi = LiveChatApi
