@@ -303,8 +303,12 @@ class Visitors
 	constructor: (@api) ->
 		@path = 'visitors'
 
-	list: (callback) =>
-		@api.get @path, {}, (response) =>
+	list: (params= {}, callback) =>
+		if typeof params == 'function' and !callback?
+			callback = params
+			params = {}
+
+		@api.get @path, params, (response) =>
 			if callback?
 				callback response
 
