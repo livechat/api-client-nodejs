@@ -161,6 +161,10 @@ class Goals extends BasicCrud
 			if callback?
 				callback response
 
+class Greetings extends BasicCrud
+	constructor: (@api) ->
+		super @api, 'greetings'
+
 class Groups extends BasicCrud
 	constructor: (@api) ->
 		super @api, 'groups'
@@ -362,6 +366,7 @@ class LiveChatApi extends Requester
 			@agents = new Agents(@) # 2
 			@groups = new Groups(@) # 2
 			@reports = new Reports(@) # @ 2
+			@greetings = new Greetings(@) # 2
 		else if @apiVersion == 1
 			@operators = new Operators(@) # 1
 			@offline_messages = new OfflineMessages(@) # 1
