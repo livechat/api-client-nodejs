@@ -359,8 +359,8 @@ class ButtonCode
 
 
 class LiveChatApi extends Requester
-	constructor: (@user, @apiKey, @apiVersion = 2) ->
-		super @user, @apiKey, @apiVersion
+	constructor: (@user, @apiKey, @apiVersion = 2, @host = 'https://api.livechatinc.com/') ->
+		super @user, @apiKey, @apiVersion, @host
 
 		if @apiVersion == 2
 			@agents = new Agents(@) # 2
