@@ -32,7 +32,7 @@ api.agents.create({ login: 'philip.j.fry@planetexpress.com', name: 'Philip J. Fr
 
 ## API Methods List
 
-Full description of methods parameters available at [LiveChat RESTful API Documentation](http://developers.livechatinc.com/rest-api/) page.
+Full description of methods parameters available at [LiveChat RESTful API Documentation](http://developers.livechatinc.com/docs/rest-api/) page.
 
 > Library has [API V1](http://www.livechatinc.com/api/v1/) support but as this version is deprecated it's not described in list. Most part of functions calls are similar to V2. For example, list of operators could be asked with simple api.operators.list() call.
 
@@ -214,4 +214,4 @@ Returns list of currently chatting visitors.
 
 ### api.visitors.addCustomVisitorDetails(id, parameters, callback)
 
-Displays additional information about the visitor in LiveChat apps. Detailed explaination available on [API documentation page](http://developers.livechatinc.com/rest-api/#add-custom-visitor-details).
+Displays additional information about the visitor in LiveChat apps. Detailed explaination available on [API documentation page](http://developers.livechatinc.com/docs/rest-api/#add-custom-visitor-details).
