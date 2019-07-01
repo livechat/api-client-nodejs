@@ -338,6 +338,22 @@ class PushPages extends BasicCrud
 	constructor: (@api) ->
 		super @api, 'push_pages'
 
+class Tickets extends BasicCrud
+  constructor: (@api) ->
+    super @api, 'tickets'
+
+    delete @.update
+    delete @.delete
+
+  tags: (id, params = {}, callback) =>
+    if typeof params == 'function' and !callback?
+      callback = params
+      params = {}
+
+    @api.put 'tickets/' + id + '/tags', params, (response) =>
+      if callback?
+        callback response
+
 class TrackingCode
 	constructor: (@api) ->
 		@path = 'tracking_code'
@@ -367,6 +383,7 @@ class LiveChatApi extends Requester
 			@groups = new Groups(@) # 2
 			@reports = new Reports(@) # @ 2
 			@greetings = new Greetings(@) # 2
+			@tickets = new Tickets(@) # 2
 		else if @apiVersion == 1
 			@operators = new Operators(@) # 1
 			@offline_messages = new OfflineMessages(@) # 1

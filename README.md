@@ -202,6 +202,24 @@ Shows the number of reached goals.
 
 Returns current LiveChat status.
 
+### Tickets
+
+#### api.tickets.list(parameters, callback)
+
+Returns all tickets.
+
+#### api.tickets.get(id, parameters, callback)
+
+Returns single ticket item for the given `id`.
+
+#### api.tickets.create(parameters, callback)
+
+Create a ticket.
+
+#### api.tickets.tags(id, parameters, callback)
+
+Update tags of a single ticket item for the given `id`.
+
 ### Visitors
 
 ### api.visitors.list(callback)
